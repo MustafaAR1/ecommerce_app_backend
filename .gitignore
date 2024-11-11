@@ -1,0 +1,36 @@
+node_modules/
+npm-debug.log
+.env
+.DS_Store
+coverage/
+.nyc_output/
+dist/
+build/
+*.log
+logs/
+tmp/
+temp/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# MongoDB
+*.pem
+dump/
+data/
+
+# Dependencies
+package-lock.json
+yarn.lock
+
+# Debug
+debug/
+.debug/
