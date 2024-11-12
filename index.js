@@ -5,6 +5,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import getConnection from './utils/get_connection.js';
 import errorHandler from './middlewares/error_handler.js';  
+import accountRoutes from './routes/account.js';
 
 
 
@@ -17,6 +18,8 @@ app.use(cors())
 app.use(express.json())
 app.use(cookieParserMiddleware)
 app.use(express.urlencoded({ extended: false }))
+
+app.use('/user',accountRoutes)
 
 
 app.use(errorHandler);

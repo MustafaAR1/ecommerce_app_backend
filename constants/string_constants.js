@@ -2,9 +2,11 @@
 const stringConstants = {
     INTERNAL_SERVER_ERROR: "Internal Server Error",
     BAD_REQUEST: "Bad Request",
+    USER_REGISTERED_SUCCESSFULLY: 'User Registered Successfully',
     UNAUTHORIZED: "Unauthorized",
     FORBIDDEN: "Forbidden",
     NOT_FOUND: "Not Found",
+    USER_ALREADY_EXISTS: "User Already Exists",
     CONFLICT: "Conflict",
     VALIDATION_ERROR: "Validation Error",
     SUCCESS: "Success",
