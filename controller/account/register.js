@@ -6,11 +6,14 @@ import Joi from "joi";
 const register = async (req, res, next) => {
     const { email, username, password } = req.body;
     const { error: validationError } = userValidation(req.body);
-
+    
 
     try {
         if (validationError) {
-            return res.status(400).json({ status: false, message: validationError.details[0].message });
+            const error = new Error(validationError.details[0].message);
+            error.statusCode = 400;
+            throw error;
+
         }
 
 
@@ -22,8 +25,9 @@ const register = async (req, res, next) => {
         ] });
 
         if (existingUser ) {
-            return res.status(400).json({ status: false, message: stringConstants.USER_ALREADY_EXISTS });
-
+            const error = new Error(stringConstants.USER_ALREADY_EXISTS);
+            error.statusCode = 400; 
+            throw error;
         }
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new user({
@@ -44,7 +48,7 @@ const register = async (req, res, next) => {
 function userValidation(data) {
 
     const userSchema = Joi.object({
-        username: Joi.string().required(),
+        username: Joi.string().min(3).max(10).alphanum().required(),
         email: Joi.string().email().required(),
         password: Joi.string().min(6).max(8).required(),
     });
