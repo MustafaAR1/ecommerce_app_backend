@@ -21,7 +21,8 @@ const stringConstants = {
     DUPLICATE_ENTRY: "Duplicate Entry",
     ACCESS_DENIED: "Access Denied",
     SESSION_EXPIRED: "Session Expired",
-    SERVICE_UNAVAILABLE: "Service Unavailable"
+    SERVICE_UNAVAILABLE: "Service Unavailable",
+    USER_NOT_FOUND:"User Not Found",
 };
 
 export default stringConstants;
